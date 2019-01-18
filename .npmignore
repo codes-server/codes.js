@@ -1,0 +1,16 @@
+# Packages
+node_modules/
+
+# Log files
+logs/
+*.log
+
+# Miscellaneous
+.tmp/
+.vscode/
+
+# NPM ignore
+.eslintrc.json
+.gitattributes
+.gitignore
+.travis.yml
