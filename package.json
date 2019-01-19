@@ -1,5 +1,5 @@
 {
-  "name": "discord.newbie",
+  "name": "codes.js",
   "version": "0.1.0",
   "description": "A discord.js clone but with some addons",
   "main": "src/index.js",
@@ -25,10 +25,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/codes-server/discord.newbie.git"
+    "url": "git+https://github.com/codes-server/codes.js.git"
   },
   "bugs": {
-    "url": "https://github.com/codes-server/discord.newbie/issues"
+    "url": "https://github.com/codes-server/codes.js/issues"
   },
-  "homepage": "https://github.com/codes-server/discord.newbie#readme"
+  "homepage": "https://github.com/codes-server/codes.js#readme"
 }
