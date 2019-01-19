@@ -3,6 +3,21 @@
   "version": "0.1.0",
   "description": "A discord.js clone but with some addons",
   "main": "src/index.js",
+  "author": "Abady <gamersspeaks@gmail.com>",
+  "license": "Apache-2.0",
+  "keywords": [
+    "discord",
+    "discord.js",
+    "bot",
+    "discord bot"
+  ],
+  "dependencies": {},
+  "peerDependencies": {
+    "discord.js": "^11.4.2"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.0"
+  },
   "scripts": {
     "test": "npm run lint",
     "lint:fix": "eslint --fix src",
@@ -12,13 +27,8 @@
     "type": "git",
     "url": "git+https://github.com/codes-server/discord.newbie.git"
   },
-  "author": "Abady <gamersspeaks@gmail.com>",
-  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/codes-server/discord.newbie/issues"
   },
-  "homepage": "https://github.com/codes-server/discord.newbie#readme",
-  "dependencies": {
-    "discord.js": "^11.4.2"
-  }
+  "homepage": "https://github.com/codes-server/discord.newbie#readme"
 }
