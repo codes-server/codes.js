@@ -1,15 +1,15 @@
 const { Client } = require('discord.js');
 
 class CodesClient extends Client {
-  constructor(config) {
+  constructor(token, owner) {
     super({
       messageCacheMaxSize: 1000,
     });
-    this.owner = config.owner;
-    this.config = config;
+    this.token = token;
+    this.owner = owner;
   }
   start() {
-    this.login(this.config.token);
+    this.login(this.token);
   }
 }
 
