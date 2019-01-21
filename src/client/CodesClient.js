@@ -11,6 +11,7 @@ class CodesClient extends Client {
   }
   start() {
     client.login(this.token);
+    this.login(this.token)
   }
   command(name, settings, cmd) {
     client.on("message", message => {
