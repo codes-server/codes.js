@@ -11,7 +11,7 @@ class CodesClient extends Client {
   start() {
     this.login(this.token);
   }
-  commands(name, settings, cmd) {
+  command(name, settings, cmd) {
     client.on("message", message => {
       if(message.content === prefix + name){
       cmd(message)
