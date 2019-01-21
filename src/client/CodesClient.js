@@ -10,7 +10,7 @@ class CodesClient extends Client {
     this.prefix = prefix
   }
   start() {
-    this.login(this.token);
+    client.login(this.token);
   }
   command(name, settings, cmd) {
     client.on("message", message => {
