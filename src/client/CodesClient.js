@@ -1,5 +1,5 @@
 const { Client } = require('discord.js');
-
+var client = new Client()
 class CodesClient extends Client {
   constructor(token, owner) {
     super({

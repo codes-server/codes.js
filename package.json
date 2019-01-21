@@ -11,7 +11,9 @@
     "bot",
     "discord bot"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "discord.js": "^11.4.2"
+  },
   "peerDependencies": {
     "discord.js": "^11.4.2"
   },
