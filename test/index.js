@@ -6,7 +6,8 @@ client.on('ready', () => {
 /* eslint-disable no-console */
   console.log('ready');
   console.log(client.owner);
+ 
 });
-client.command("ping", {aliases: ["pings", "pong"]}, function cmd(message) {
+client.command("ping", {aliases: ["kpop", "brok", "pings", "pong"]}, function cmd(message) {
   message.channel.send("PONG!")
 })  
