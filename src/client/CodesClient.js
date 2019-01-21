@@ -1,5 +1,5 @@
 const { Client } = require('discord.js');
-var client = new Client();
+
 class CodesClient extends Client {
   constructor(token, owner, prefix) {
     super({
@@ -9,20 +9,24 @@ class CodesClient extends Client {
     this.owner = owner;
     this.prefix = prefix;
   }
-  start() {
-    client.login(this.token);
-    this.login(this.token);
-  }
+
   command(name, settings, exec) {
-    let aliases = settings.aliases;
-    for (const i in aliases) {
-      aliases[i] = this.prefix + aliases[i];
-    }
-    client.on('message', message => {
-      if (message.content === this.prefix + name || aliases.includes(message.content)) {
+    this.aliases = settings.aliases;
+    this.name = name;
+    this.on('message', message => {
+      if (message.content.indexOf(this.prefix) !== 0) return;
+      const args = message.content.slice(this.prefix.length).trim().split(/ +/g);
+      const command = args.shift().toLowerCase();
+
+      if (command === this.name || this.aliases.includes(command)) {
         exec(message);
       }
     });
+  }
+
+
+  start() {
+    return this.login(this.token);
   }
 }
 
