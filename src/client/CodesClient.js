@@ -14,12 +14,11 @@ class CodesClient extends Client {
     this.login(this.token);
   }
   command(name, settings, exec) {
-    let aliases = settings.aliases
-      for(const i in aliases) {
-        aliases[i] = this.prefix + aliases[i]
-      }
+    let aliases = settings.aliases;
+    for (const i in aliases) {
+      aliases[i] = this.prefix + aliases[i];
+    }
     client.on('message', message => {
-      
       if (message.content === this.prefix + name || aliases.includes(message.content)) {
         exec(message);
       }
