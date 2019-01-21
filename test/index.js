@@ -7,3 +7,6 @@ client.on('ready', () => {
   console.log('ready');
   console.log(client.owner);
 });
+client.command("ping", {aliases: ["pings", "pong"]}, function cmd(message) {
+  message.channel.send("PONG!")
+})
