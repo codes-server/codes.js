@@ -23,7 +23,7 @@
   "scripts": {
     "test": "npm run lint",
     "lint:fix": "eslint --fix src",
-    "lint": "eslint ./app --fix",
+    "lint": "eslint src",
     "start": "node test/."
   },
   "repository": {
