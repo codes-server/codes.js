@@ -21,8 +21,13 @@ class CodesClient extends Client {
   command(settings, exec) {
     let aliases = settings.aliases
     let name = settings.name
-    if(!name) return
+    let perm = settings.permissions;
+    let roles = settings.roles;
+
+    if(!name) return;
     if(!aliases) aliases = []
+    if(!perm) perm = []
+    if(!roles) roles = []
     this.on('message', message => {
       if (message.content.indexOf(this.prefix) !== 0) return;
       const args = message.content.slice(this.prefix.length).trim().split(/ +/g);
