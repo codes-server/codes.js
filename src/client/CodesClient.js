@@ -5,33 +5,33 @@ class CodesClient extends Client {
     super({
       messageCacheMaxSize: 1000,
     });
+    // let command_path = path.commands
+    // this.on('message', message => {
+    //   if (message.content.indexOf(this.prefix) !== 0) return;
+    //   const args = message.content.slice(this.prefix.length).trim().split(/ +/g);
+    //   const command = args.shift().toLowerCase();
+    //   let c = require((command_path.endsWith("/")) ? command_path + `${command}.js`: command_path + `/${command}.js`)
+    //   c.run()
+    // })
     this.token = token;
     this.owner = owner;
     this.prefix = prefix;
   }
-<<<<<<< HEAD
-  start() {
-    this.login(this.token);
-  }
-  command(name, settings, cmd) {
-    client.on("message", message => {
-      if(message.content === prefix + name){
-      cmd(message)
-=======
 
-  command(name, settings, exec) {
-    this.aliases = settings.aliases;
-    this.name = name;
+  command(settings, exec) {
+    let aliases = settings.aliases
+    let name = settings.name
+    if(!name) return
+    if(!aliases) aliases = []
     this.on('message', message => {
       if (message.content.indexOf(this.prefix) !== 0) return;
       const args = message.content.slice(this.prefix.length).trim().split(/ +/g);
       const command = args.shift().toLowerCase();
-
-      if (command === this.name || this.aliases.includes(command)) {
+      if (command === name || aliases.includes(command)) {
         exec(message);
->>>>>>> f2a9906b71eee012efb62420496d93b69c0d7c52
       }
     });
+    return undefined;
   }
 
 
