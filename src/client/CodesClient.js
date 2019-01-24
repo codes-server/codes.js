@@ -19,7 +19,6 @@ class CodesClient extends Client {
   }
 
   command(settings, exec) {
-<<<<<<< HEAD
     let aliases = settings.aliases
     let name = settings.name
     let perm = settings.permissions;
@@ -31,13 +30,6 @@ class CodesClient extends Client {
     if(!perm) perm = []
     if(!roles) roles = []
     if(!ownerOnly) ownerOnly = false
-=======
-    this.settings = settings;
-    let aliases = this.settings.aliases || [];
-    let name = this.settings.name;
-    if (!name || !exec) return;
-
->>>>>>> 4e90daa7516f19b744b7f18fc00f8f65c4f53367
     this.on('message', message => {
       if (message.content.indexOf(this.prefix) !== 0) return;
       const args = message.content.slice(this.prefix.length).trim().split(/ +/g);
