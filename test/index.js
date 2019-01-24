@@ -1,4 +1,4 @@
-const { TOKEN } = require('../../auth.js');
+const { TOKEN } = require('./auth');
 const { Client, Plugins } = require('../src/index');
 const client = new Client(TOKEN, '171259176029257728', '-');
 client.start();
