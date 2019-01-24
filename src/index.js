@@ -1,5 +1,5 @@
 module.exports = {
   // Core
   Client: require('./client/CodesClient'),
-  Plugins: require('./plugins/index')
+  Plugins: require('./plugins/index'),
 };

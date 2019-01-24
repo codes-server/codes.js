@@ -5,7 +5,7 @@ class CodesClient extends Client {
     super({
       messageCacheMaxSize: 1000,
     });
-    // let command_path = path.commands
+    // Let command_path = path.commands
     // this.on('message', message => {
     //   if (message.content.indexOf(this.prefix) !== 0) return;
     //   const args = message.content.slice(this.prefix.length).trim().split(/ +/g);
@@ -19,10 +19,11 @@ class CodesClient extends Client {
   }
 
   command(settings, exec) {
-    let aliases = settings.aliases
-    let name = settings.name
-    if(!name) return
-    if(!aliases) aliases = []
+    this.settings = settings;
+    let aliases = this.settings.aliases || [];
+    let name = this.settings.name;
+    if (!name || !exec) return;
+
     this.on('message', message => {
       if (message.content.indexOf(this.prefix) !== 0) return;
       const args = message.content.slice(this.prefix.length).trim().split(/ +/g);
@@ -31,7 +32,6 @@ class CodesClient extends Client {
         exec(message);
       }
     });
-    return undefined;
   }
 
 
