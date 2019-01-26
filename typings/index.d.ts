@@ -1,4 +1,4 @@
-
+import { Client } from 'discord.js';
 
 declare module 'codes.js' {
 
@@ -6,7 +6,7 @@ declare module 'codes.js' {
 
     // Classes
 
-    class CodesClient {
+    export class CodesClient extends Client {
         constructor(token: string, owner: string, prefix: string)
         public command(settings: CommandSettings, exec: Function): null
         public start():Promise<string>
