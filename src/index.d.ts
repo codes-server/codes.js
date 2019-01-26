@@ -1,13 +1,10 @@
-import { Client } from 'discord.js';
-
 declare module 'codes.js' {
-
-    export const version: string
+    import { Client, Snowflake } from 'discord.js';
 
     // Classes
 
     export class CodesClient extends Client {
-        constructor(token: string, owner: string, prefix: string)
+        constructor(token: string, owner: Snowflake | Snowflake[], prefix: string)
         public command(settings: CommandSettings, exec: Function): null
         public start():Promise<string>
     }
@@ -19,5 +16,7 @@ declare module 'codes.js' {
         roles: string[],
         ownerOnly: boolean
     }
+    
+    export const version: string;
 
 }
