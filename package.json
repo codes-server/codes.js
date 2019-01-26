@@ -19,7 +19,8 @@
     "discord.js": "^11.4.2"
   },
   "devDependencies": {
-    "eslint": "^5.12.1"
+    "eslint": "^5.12.1",
+    "typescript": "^3.2.4"
   },
   "scripts": {
     "test": "npm run lint",
