@@ -4,7 +4,7 @@ class CodesClient extends Client {
   /**
    *
    * @param {string} token - Yours bot token
-   * @param {string} owner - Your/owner id
+   * @param {string[]} owner - Your/owners id
    * @param {string} prefix - the prefix for this bot
    */
   constructor(token, owner, prefix) {
@@ -24,13 +24,14 @@ class CodesClient extends Client {
     this.prefix = prefix;
   }
   /**
-   * @param {CommandSettings} [settings = {}] - command settings
+   * @param {CommandSettings} [settings={}] - command settings
    * @param {Function} exec - function to execute!
    */
-  command(settings, exec) {
+  command(settings = {}, exec) {
     const {
       name,
       aliases = [],
+      ownerOnly = false,
     } = settings;
 
     this.on('message', message => {
@@ -39,11 +40,21 @@ class CodesClient extends Client {
       const command = args.shift().toLowerCase();
 
       if (command === name || aliases.includes(command)) {
+        if (ownerOnly) {
+          const isOwner = this.isOwner(message.author.id);
+          if (isOwner) {
+            exec(message);
+          }
+          return;
+        }
         exec(message);
       }
     });
   }
 
+  isOwner(id) {
+    return this.owner.includes(id);
+  }
 
   start() {
     return this.login(this.token);
