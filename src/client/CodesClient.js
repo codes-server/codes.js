@@ -1,6 +1,12 @@
 const { Client } = require('discord.js');
 
 class CodesClient extends Client {
+  /**
+   *
+   * @param {string} token - Yours bot token
+   * @param {string} owner - Your/owner id
+   * @param {string} prefix - the prefix for this bot
+   */
   constructor(token, owner, prefix) {
     super({
       messageCacheMaxSize: 1000,
@@ -17,23 +23,21 @@ class CodesClient extends Client {
     this.owner = owner;
     this.prefix = prefix;
   }
-
+  /**
+   * @param {CommandSettings} [settings = {}] - command settings
+   * @param {Function} exec - function to execute!
+   */
   command(settings, exec) {
-    let aliases = settings.aliases
-    let name = settings.name
-    let perm = settings.permissions;
-    let roles = settings.roles;
-    let ownerOnly = settings.ownerOnly;
-    
-    if(!name) return;
-    if(!aliases) aliases = []
-    if(!perm) perm = []
-    if(!roles) roles = []
-    if(!ownerOnly) ownerOnly = false
+    const {
+      name,
+      aliases = [],
+    } = settings;
+
     this.on('message', message => {
       if (message.content.indexOf(this.prefix) !== 0) return;
       const args = message.content.slice(this.prefix.length).trim().split(/ +/g);
       const command = args.shift().toLowerCase();
+
       if (command === name || aliases.includes(command)) {
         exec(message);
       }
