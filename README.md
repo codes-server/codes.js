@@ -25,22 +25,6 @@ client.command({
     message.channel.send('PONG!');
   });
 
-  client.command({
-    name: "status",
-    aliases: ['status','bot-status'],
-    ownerOnly: true
-  }, message=>{
-    message.channel.send(`CHANGE BOT STATUS...`)
-  });
-
-client.command({
-    name: "members",
-    aliases: ["users", "member", "الأعضاء"]
-  },
-  msg => {
-    Plugins.members(msg)
-  })
-
 client.command({
   name: "help",
   aliases: ["help", "مساعدة", "قائمة الأوامر", "commands"]
