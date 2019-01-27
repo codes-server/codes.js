@@ -17,6 +17,7 @@ client.on('ready', () => {
   console.log(`${client.user.tag} is ready
 OWNER: ${client.owner}`);
 });
+
 client.command({
     name: "ping",
     aliases: ['kpop', 'brok', 'pings', 'pong']
