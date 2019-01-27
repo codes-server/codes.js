@@ -23,9 +23,7 @@ client.command({
   }, message=>{
     message.channel.send(`CHANGE BOT STATUS...`)
   });
-client.command({
-  name: ""
-})
+
 client.command({
     name: "members",
     aliases: ["users", "member", "الأعضاء"]
