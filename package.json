@@ -2,7 +2,8 @@
   "name": "codes.js",
   "version": "0.1.0",
   "description": "A discord.js clone but with some addons",
-  "main": "src/index.js",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
   "author": "Abady <gamersspeaks@gmail.com>",
   "license": "Apache-2.0",
   "keywords": [
@@ -18,7 +19,8 @@
     "discord.js": "^11.4.2"
   },
   "devDependencies": {
-    "eslint": "^5.12.1"
+    "eslint": "^5.12.1",
+    "typescript": "^3.2.4"
   },
   "scripts": {
     "test": "npm run lint",
