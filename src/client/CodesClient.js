@@ -19,22 +19,27 @@ class CodesClient extends Client {
   }
 
   command(settings, exec) {
-    let aliases = settings.aliases
-    let name = settings.name
+    let aliases = settings.aliases;
+    let name = settings.name;
     let perm = settings.permissions;
     let roles = settings.roles;
     let ownerOnly = settings.ownerOnly;
-    
-    if(!name) return;
-    if(!aliases) aliases = []
-    if(!perm) perm = []
-    if(!roles) roles = []
-    if(!ownerOnly) ownerOnly = false
+
+    if (!name) return;
+    if (!aliases) aliases = [];
+    if (!perm) perm = false;
+    if (!roles) roles = false;
+    if (!ownerOnly) ownerOnly = false;
     this.on('message', message => {
       if (message.content.indexOf(this.prefix) !== 0) return;
       const args = message.content.slice(this.prefix.length).trim().split(/ +/g);
       const command = args.shift().toLowerCase();
       if (command === name || aliases.includes(command)) {
+        if (roles !== false) {
+          if (perm !== false) {
+            exec(message);
+          }
+        }
         exec(message);
       }
     });
