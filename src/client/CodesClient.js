@@ -29,17 +29,14 @@ class CodesClient extends Client {
    */
 
   command(settings, exec) {
-    let aliases = settings.aliases;
-    let name = settings.name;
-    let perm = settings.permissions;
-    let roles = settings.roles;
-    let ownerOnly = settings.ownerOnly;
+    const {
+      name, 
+      aliases = [],
+      perm = false,
+      roles = false,
+      ownerOnly = false,
+    } = settings;
 
-    if (!name) return;
-    if (!aliases) aliases = [];
-    if (!perm) perm = false;
-    if (!roles) roles = false;
-    if (!ownerOnly) ownerOnly = false;
     this.on('message', message => {
       if (message.content.indexOf(this.prefix) !== 0) return;
       const args = message.content.slice(this.prefix.length).trim().split(/ +/g);
@@ -51,7 +48,6 @@ class CodesClient extends Client {
           if (isOwner) {
             exec(message);
           }
-          return;
         }
         exec(message);
       }
