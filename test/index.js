@@ -1,6 +1,6 @@
 const { TOKEN } = require('../../auth');
 const { Client, Plugins } = require('../src/index');
-const client = new Client(TOKEN, ['228401267263668224','407595276946243604','354716386716811264','171259176029257728','228401267263668224'], '-');
+const client = new Client(TOKEN, ['228401267263668224','407595276946243604','354716386716811264','171259176029257728','298732816995319809'], '-');
 //new Client(توكن بوتك, ['YOUR ID'], 'بريفكس بوتك')
 client.start();
 client.on('ready', () => {

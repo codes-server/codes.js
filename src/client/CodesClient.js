@@ -30,7 +30,7 @@ class CodesClient extends Client {
 
   command(settings, exec) {
     const {
-      name, 
+      name,
       aliases = [],
       perm = false,
       roles = false,
@@ -48,8 +48,9 @@ class CodesClient extends Client {
           if (isOwner) {
             exec(message);
           }
+        } else {
+          exec(message);
         }
-        exec(message);
       }
     });
   }
