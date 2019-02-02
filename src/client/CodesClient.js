@@ -41,8 +41,13 @@ class CodesClient extends Client {
       if (message.content.indexOf(this.prefix) !== 0) return;
       const args = message.content.slice(this.prefix.length).trim().split(/ +/g);
       const command = args.shift().toLowerCase();
-
       if (command === name || aliases.includes(command)) {
+        if (roles) {
+          if (!message.member.roles.has(roles)) return;
+        }
+        if (perm) {
+          if (!message.member.hasPermission(perm)) return;
+        }
         if (ownerOnly) {
           const isOwner = this.isOwner(message.author.id);
           if (isOwner) {
