@@ -26,9 +26,17 @@ client.command({
 
 client.command({
     name: "members",
-    aliases: ["users", "member", "الأعضاء"]
+    aliases: ["users", "member", "الأعضاء"],
+    permissions: ["MANAGE_GUILD"],
+    args: [
+      {
+        id: "test",
+        type: "string",
+        default: "Test"
+      }
+    ]
   },
-  msg => {
+  (msg, args) => {
     Plugins.members(msg)
   })
 

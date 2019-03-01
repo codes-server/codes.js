@@ -33,26 +33,24 @@ class CodesClient extends Client {
       name,
       aliases = [],
       perm = false,
-      roles = false,
       ownerOnly = false,
+      args = false,
     } = settings;
 
     this.on('message', message => {
       if (message.content.indexOf(this.prefix) !== 0) return;
-      const args = message.content.slice(this.prefix.length).trim().split(/ +/g);
-      const command = args.shift().toLowerCase();
+      const arg = message.content.slice(this.prefix.length).trim().split(/ +/g);
+      const command = arg.shift().toLowerCase();
       if (command === name || aliases.includes(command)) {
-        if (roles) {
-          if (!message.member.roles.has(roles)) return;
-        }
         if (perm) {
           if (!message.member.hasPermission(perm)) return;
         }
         if (ownerOnly) {
           const isOwner = this.isOwner(message.author.id);
-          if (isOwner) {
-            exec(message);
-          }
+          // eslint-disable-next-line no-useless-return
+          if (!isOwner) return;
+        } else if (args) {
+          exec(message, args);
         } else {
           exec(message);
         }
