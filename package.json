@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "description": "A discord.js clone but with some addons",
   "main": "./src/index.js",
-  "types": "./src/index.d.ts",
   "author": "Abady <gamersspeaks@gmail.com>",
   "license": "Apache-2.0",
   "keywords": [
